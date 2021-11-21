@@ -1,3 +1,4 @@
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -12,8 +13,8 @@ const app = express();
 
 //Set up mongoose connection
 const mongoose = require('mongoose');
-const mongoDB = require('./db-uri');
-mongoose.connect(mongoDB.uri, {
+const mongoDB = process.env.MONGODB_URI;
+mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
