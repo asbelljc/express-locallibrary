@@ -238,7 +238,6 @@ exports.author_update_post = [
       return;
     } else {
       // Data from form is valid.
-
       // Create an Author object with escaped and trimmed data.
       var author = new Author({
         first_name: req.body.first_name,
