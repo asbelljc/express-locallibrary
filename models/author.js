@@ -15,6 +15,14 @@ AuthorSchema.virtual('name').get(function () {
   return this.family_name + ', ' + this.first_name;
 });
 
+AuthorSchema.virtual('date_of_birth_for_form_insertion').get(function () {
+  return this.date_of_birth.toISOString().split('T')[0];
+});
+
+AuthorSchema.virtual('date_of_death_for_form_insertion').get(function () {
+  return this.date_of_death.toISOString().split('T')[0];
+});
+
 // Virtual for author's lifespan
 AuthorSchema.virtual('lifespan').get(function () {
   var lifetime_string = '';
